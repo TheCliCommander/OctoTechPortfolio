@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<div class="headContainer">
+<head>
+    <script src="https://kit.fontawesome.com/5fa6006d1b.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+    <!-- change with custom?-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+
+    <title>Michael Ryberg's Portfolio</title>
+</head>
+</div>
+<! -- set scrolling text -->
+        <div class="scrolling-text">
+<body>
+    <div class="background-container">
+        
+        <div class="bg-image0">
+
+            <img class="bg-image0" src="img/octoBannerTop.png" alt="fixed image">
+        </div>
+
+
+        <div class="body"></div>
+        
+        <header>
+
+
+            <button class="nav-toggle" id="hamburger" aria-label="toggle navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </span>
+            </button>
+            <nav class="nav">
+
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">My Services</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About Me</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="https://www.github.com/TheCliCommander" class="nav__link">Github</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        
+        
+        <! -- Introduction -->
+        <section class="intro" id="home">
+            <h1 class="section__title section__title--intro">
+                Hi, I'm <strong>Michael Ryberg</strong>
+            </h1>
+            <div class="container">
+                <div class="bg-image0"
+                     id="bg-image0"
+                <img src="bg-image0" />
+                    <h1 id="banner-text">Multi-Disciplined</h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Greetings! I am Michael Ryberg, a seasoned Developer and Linux Administrator. With a wealth of experience and an unwavering passion for technology, I have honed my skills to deliver top-tier solutions tailored to meet diverse needs.</p>
+            <p>My journey began with a fascination for code, and over the years, I've mastered languages like Python, C++, and JavaScript. Whether it's crafting elegant web designs or building robust applications, I thrive on turning ideas into reality.</p>
+        </section>
+        <div class="container">
+            <div class="bg-image1">
+    
+                <img class="bg-image1" src="img/octoBannerMiddle.png" alt="fixed image">
+          
+    
+            </div>
+        </div>
+        
+        <section id="services">
+            <h2>What I Do</h2>
+            <div class="service">
+                <h3>Development</h3>
+                <p>My forte lies in end-to-end software development. From conceptualization to deployment, I craft bespoke solutions that seamlessly blend design aesthetics with robust functionality. Whether it's web development, app creation, or database management, I bring precision and innovation to every project.</p>
+            </div>
+            
+            <div class="service">
+                <h3>Linux System Administration</h3>
+                <p>Linux is my passion. With extensive hands-on experience—over 200 hours—I've delved into both desktop and server environments, including Proxmox. My expertise spans system setup, maintenance, troubleshooting, and ensuring optimal security protocols.</p>
+            </div>
+            <div class="container">
+                <div class="bg-image2">
+        
+                    <img class="bg-image2" src="img/octoBannerBottom.png" alt="fixed image">
+              
+        
+                </div>
+            </div>
+         
+            <div class="service">
+                <h3>Linux System Administration</h3>
+                <p>Linux is my passion. With extensive hands-on experience—over 200 hours—I've delved into both desktop and server environments, including Proxmox. My expertise spans system setup, maintenance, troubleshooting, and ensuring optimal security protocols.</p>
+            </div>
+            <div class="service">
+                <h3>E-Commerce</h3>
+                <p>Unlock the potential of your online store with my comprehensive e-commerce solutions. Seamlessly facilitating transactions, enhancing user experience, and fortifying security—these are the cornerstones of my approach.</p>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="projects" id="projects">
+            <h2 class="section__title section__title--projects">Projects</h2>
+            <p class="section__subtitle section__subtitle--projects">
+                Portfolio
+            </p>
+            <div class="projects__body">
+                <p>
+                    Here is a portfolio of my favorite projects for you to view for an idea of the
+                    kinds of things I can do for you. Of course I am not limited to things like this,
+                    these are just some of my most recent projects that demonstrate the versatility of my skills.
+                    Click an image to see video of that application in use!
+                </p>
+            </div>
+
+            <div class="portfolio">
+                <script>
+                    let scene, camera, renderer, carousel;
+                    const portfolioItems = [
+                        { url: 'portfolio-item.html', img: 'img/OnTime.png', alt: 'picture of OnTime App' },
+                        { url: 'portfolio-item2.html', img: 'img/PassBox.jpg.png', alt: 'picture of PassBox App' },
+                        { url: 'portfolio-item3.html', img: 'img/ecommercesite.png', alt: 'picture of E-Commerce Site' }
+                    ];
+
+                    function initCarousel() {
+                        scene = new THREE.Scene();
+                        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                        renderer = new THREE.WebGLRenderer();
+                        renderer.setSize(window.innerWidth, window.innerHeight);
+                        document.getElementById('carouselContainer').appendChild(renderer.domElement);
+
+                        carousel = new THREE.Group();
+                        portfolioItems.forEach((item, index) => {
+                            const texture = new THREE.TextureLoader().load(item.img);
+                            const material = new THREE.MeshBasicMaterial({ map: texture });
+                            const plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 3), material);
+                            plane.position.x = index * 6 - (portfolioItems.length * 6) / 2 + 3; // Spread out the planes
+                            plane.userData.url = item.url; // Store the URL in the mesh's userData
+                            carousel.add(plane);
+                        });
+
+                        scene.add(carousel);
+                        camera.position.z = 5;
+
+                        const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
+                        carousel.children.forEach(mesh => {
+                            domEvents.addEventListener(mesh, 'click', event => {
+                                window.location.href = mesh.userData.url;
+                            }, false);
+                        });
+
+                        animate();
+                        
+                    }
+
+                    function animate() {
+                        requestAnimationFrame(animate);
+                        carousel.rotation.y += 0.01; // Rotate the carousel
+                        renderer.render(scene, camera);
+                    }
+
+                    window.addEventListener('resize', () => {
+                        camera.aspect = window.innerWidth / window.innerHeight;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(window.innerWidth, window.innerHeight);
+                    });
+
+                    initCarousel();
+                    carousel.children.forEach(mesh => {
+                        mesh.addEventListener('mouseenter', event => {
+                            carousel.children.forEach(item => {
+                                if (item !== mesh) {
+                                    item.scale.set(0.8, 2, 0.8);
+                                } else {
+                                    item.scale.set(1, 2, 1);
+                                }
+                            });
+                        });
+
+                        mesh.addEventListener('mouseleave', event => {
+                            carousel.children.forEach(item => {
+                                item.scale.set(1, 2, 1);
+                            });
+                        });
+
+                        mesh.addEventListener('click', event => {
+                            carousel.children.forEach(item => {
+                                if (item !== mesh) {
+                                    item.position.x = item.position.x - 6;
+                                } else {
+                                    item.position.x = 0;
+                                }
+                            });
+                        });
+                    });
+                </script>
+                
+                <div id="carouselContainer">
+                
+                <!-- Portfolio item 01 -->
+                <a href="portfolio-item.html" class="portfolio__item0">
+                    <img src="img/OnTime.png" alt="picture of OnTime App" class="portfolio__img0">
+                </a>
+
+                <!-- Portfolio item 02 -->
+                <a href="portfolio-item2.html" class="portfolio__item1">
+                    <img src="img/PassBox.jpg.png" alt="picture of PassBox App" class="portfolio__img1">
+                </a>
+
+                <!-- Portfolio item 03 -->
+                <a href="portfolio-item3.html" class="portfolio__item2">
+                    <img src="img/ecommercesite.png" alt="picture of E-Commerce Site" class="portfolio__img2">
+                </a>
+            </div>
+
+
+            
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="mailto:mrybergtechsolutions@gmail.com" class="footer__link">mrybergtechsolutions@gmail.com</a>
+            <ul class="social-list">
+                <li class="social-list__item">
+                    <a class="social-list__link"
+                       href="https://www.github.com/TheCliCommander"><i class="fa-brands fa-github"></i></a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link"
+                       href="https://www.linkedin.com/in/michael-ryberg-871b33196/"><i class="fa-brands fa-linkedin"></i></a>
+                </li>
+            </ul>
+        </footer>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+
+</body>
+
+                                        
+</html>

@@ -1,0 +1,41 @@
+﻿/* style.css*/
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #7851a9;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+.octopus-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#octopus-canvas {
+    /* Set canvas size and other sytles as needed */
+    width: 300px; /*adjust to desired octopus size */
+    height: 300px;
+    background-color: transparent;/*set canvas background color*/
+}
+
+.carousel {
+    display: flex;
+    width: var(--octopus-width, 300px);/*match width of octopus*/
+    height:auto;
+    column-gap: 15px;
+   
+    /* Add carousel styling (e.g., width, height, spacing, etc.) */
+
+}
+
+.carousel-item {
+    flex: 0 0 200px;
+    padding: 10px;
+    box-shadow:10px 10px inset; 
+}
