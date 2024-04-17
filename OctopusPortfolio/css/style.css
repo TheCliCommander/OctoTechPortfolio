@@ -4,8 +4,8 @@
     --clr-light-gray: #808080;
     --banner-box-shadow: 0.5px 1.75px 28px #515174;
     --header-box-shadow: 1 6px 8px #515174;
-    --clr-gradient-end: purple; 
-    --clr-gradient-start: #2f1f8c; 
+    --clr-gradient-end: rgb(43, 21, 43); 
+    --clr-gradient-start: #4d4c51; 
     --clr-accent: linear-gradient(to left, var(--clr-gradient-end), 
     var(--clr-gradient-start), 
     var(--clr-gradient-end));
@@ -92,7 +92,7 @@ img
     border: .5px solid var(--clr-dark);  /* Dark gray borders */
     box-shadow: var(--banner-box-shadow);
     height:1.5in;
-    width:1.5in; 
+    width: 1.5in; 
      }
 
 /* Gradient and shadow for buttons */
@@ -104,9 +104,9 @@ button {
 /* Gradient for header text */
 
 @keyframes textGradientAnimation {
-    0% { color:purple; }
-    50% { color: rgb(150, 150, 210); }
-    100% { color: rgb(62, 92, 243);  }
+    0% { color:rgb(55, 34, 55); }
+    50% { color: rgb(55, 34, 55); }
+    100% { color: rgb(140, 153, 215);  }
 }
 
 h1,
@@ -114,19 +114,51 @@ h2,
 h3,
 h4,
 h6 {
-    animation: textGradientAnimation 0.05s infinite alternate;
+    font-family: 'Ubuntu', sans-serif;
+    animation: textGradientAnimation 3s infinite alternate;
+    text-align: center;
 }
-.about p{
+
+    
+
+.about-section {
     position: relative;
-    top: 100px;
-    left: 75px;
-    justify-content: left;
-    padding-left: 75px;
-    padding-right: 75px;
-    padding-bottom: 75px;
-    padding-top: 75px;
-    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('buttonUpBunCutout.png') center/cover no-repeat;
+    border: 2px solid var(--clr-light-gray);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px;
+    background-color: rgba(0, 0, 0, 0.502);  /* Black background with 50% transparency */
+    border-radius: 50px;
+    z-index: 1; /* Ensure the text appears on top of the image */
+    border: 2px solid var(--clr-light-gray);
+    background-attachment: scroll;
+
+    
+    
+    border-radius: 10px;
+   
+
+}
+
+.about-section p {
+    font-family: 'Prompt', sans-serif; 
+    text-justify: left;
+    font-size:small;
+    z-index: 1;
+    height:10em;
+    overflow:scroll;
+    position: sticky;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Adds a subtle shadow to the text to make it stand out */
+    
+    color: #afdef8; /* Light gray text */
 }
 
     
