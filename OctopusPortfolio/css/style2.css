@@ -1,0 +1,314 @@
+/* Your existing CSS rules go here */
+:root {
+    --clr-dark: black;
+    --clr-light-gray: #808080;
+    --banner-box-shadow: 0.5px 1.75px 28px #515174;
+    --header-box-shadow: 1 6px 8px #515174;
+    --clr-gradient-end: rgb(43, 21, 43); 
+    --clr-gradient-start: #4d4c51; 
+    --clr-accent: linear-gradient(to left, var(--clr-gradient-end), 
+    var(--clr-gradient-start), 
+    var(--clr-gradient-end));
+    --bg-image0: src='img/octoBannerTop.png';
+    --bg-image1: src='img/octoBannerMiddle.png';
+    --bg-image2: src='img/octoBannerBottom';
+}
+/*add octopus banner*/
+.bg-image0 {
+    width: 100%;
+    height:1in;
+    background-image:url('img/octoBannerTop.png');
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.bg-image1 {
+    width: 100%;
+    height:1in;
+    background-image:url('img/octoBannerMiddle.png');
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.bg-image2 {
+    width: 100%;
+    height:1in;
+    background-image:url('img/octoBannerBottom.png');
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+
+/*Add background container styles*/
+.background-container {
+    position:center;
+    
+    background-position:center;
+    background-repeat:no-repeat;
+    
+}
+.scrolling-text {
+    text-align:center;
+    
+    z-index: 1;
+    height:75em;
+    overflow:scroll;
+    position: sticky;
+    background-color: rgba(2, 2, 35, 0.459);
+}
+
+    
+    /* Add the new styles for dark mode */
+body, html {
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Adds a subtle shadow to the text to make it stand out */
+    background-color: var(--clr-dark); /* Black background */
+    color: #afdef8; /* Light gray text */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+    background-image:var(--bg-image0);
+    margin:0;
+    padding:0;
+}
+
+
+
+
+
+/* Add borders and shadows to images, banners, and buttons */
+img
+ {
+    border: .5px solid var(--clr-dark);  /* Dark gray borders */
+    box-shadow: var(--banner-box-shadow);
+    height:1.5in;
+    width: 1.5in; 
+     }
+
+/* Gradient and shadow for buttons */
+button {
+    background: var(--clr-accent); /* Gradient for buttons */
+    box-shadow: var(--banner-box-shadow);
+}
+
+/* Gradient for header text */
+
+@keyframes textGradientAnimation {
+    0% { color:rgb(55, 34, 55); }
+    50% { color: rgb(55, 34, 55); }
+    100% { color: rgb(140, 153, 215);  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+    font-family: 'Ubuntu', sans-serif;
+    animation: textGradientAnimation 3s infinite alternate;
+    text-align: center;
+}
+
+    
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('buttonUpBunCutout.png') center/cover no-repeat;
+    border: 2px solid var(--clr-light-gray);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 40px;
+    background-color: rgba(0, 0, 0, 0.502);  /* Black background with 50% transparency */
+    border-radius: 50px;
+    z-index: 1; /* Ensure the text appears on top of the image */
+    border: 2px solid var(--clr-light-gray);
+    background-attachment: scroll;
+
+    
+    
+    border-radius: 10px;
+   
+
+}
+
+.about-section p {
+    font-family: 'Prompt', sans-serif; 
+    text-justify: left;
+    font-size:small;
+    z-index: 1;
+    height:10em;
+    overflow:scroll;
+    position: sticky;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Adds a subtle shadow to the text to make it stand out */
+    
+    color: #afdef8; /* Light gray text */
+}
+
+    
+
+/* Hamburger menu styles */
+
+
+/*show the nav menu when .nav-opnen class added to body*/
+body.nav-open .nav {
+    display:block;
+    position:fixed;
+}
+.nav-toggle {
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:1000;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    width:30px;
+    height:25px;
+}
+
+.nav-toggle span {
+    display:block;
+    width:100%;
+    height:4px;
+    
+    background:var(--clr-accent);
+    transform: all 0.3s ease;
+    
+}
+
+.nav {
+    display:none;
+    position:fixed;
+    top:60px;/*adjust based on the height of your nav toggle*/
+    right:20px;
+    background-color:none;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 10px rga(0,0,0,0.1);
+}
+
+.nav.active {
+    display:block;
+}
+
+.nav ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.nav ul li {
+    padding:10px 0;
+}
+.nav ul li a {
+    text-decoration:none;
+    color:var(--clr-accent);
+    
+}
+
+/* Additional styles for hover states and other elements as needed */
+/* Banner style settings */
+.container {
+    width: auto;
+    overflow: hidden;
+    box-shadow:var(--banner-box-shadow);
+}
+
+
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%}
+    100% {background-position: 0% 50%;}
+
+}
+/* Background images */
+.bg-image0,
+.bg-image1,
+.bg-image2 {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5em;
+    background-size: cover;
+}
+
+.bg-image0 {
+    background-image:url('img/octoBannerTop.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-image1 {
+    position: fixed;
+    top:1.75in;/*position image 3.5 inches from top of screen*/
+    left:0;
+    width:100%;
+    height: 1in;/*make image height 1inch*/
+    background-image:url('img/octoBannerMiddle.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1; /*ensuring it stays behind the text/content*/
+
+}
+/*Ensure "What I Do* section content scrolls over the fixed background image*/
+#what-i-do {
+    position: relative;
+    z-index: 1;/*higher than bg-image1 to ensure text appears on top*/
+    background-color: transparent;
+    color:var(--clr-light-gray);
+    padding: 20px;/*add padding for better text  visibility*/
+}
+   
+.bg-image2 {
+    z-index:-1;
+    top:3.75in;
+    width: 100%;
+    height:1in;
+    background-image:url('img/octoBannerBottom.png');
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}   /*background: linear-gradient(270deg, purple, #2f1f8c);*/
+    
+    /*animation: gradient 3s ease infinite;*/
+    
+   
+     
+   
+
+.banner-text h1 {
+    color: black;
+    text-shadow: 2px 2px 4px rgb(197, 197, 197);
+    font-weight: bold;
+    /*box-shadow: var(--banner-box-shadow);*/
+}
+
+.carousel-container {
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
