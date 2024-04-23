@@ -9,9 +9,22 @@
     --clr-accent: linear-gradient(to left, var(--clr-gradient-end), 
     var(--clr-gradient-start), 
     var(--clr-gradient-end));
-    --bg-image0: src='img/octoBannerTop.png';
-    --bg-image1: src='img/octoBannerMiddle.png';
-    --bg-image2: src='img/octoBannerBottom';
+    --bg-image0: url('img/octoBannerTop.png');
+    --bg-image1: url('img/octoBannerMiddle.png');
+    --bg-image2: url('img/octoBannerBottom');
+
+
+}
+.section__title {
+    position:fixed;
+    top:'50%';
+    left:'50%';
+    /*center vertically and horizontally*/
+    z-index:1;/*ensure title appears above bg-image0*/
+    font-size: medium;
+    font-family: 'Ubuntu', sans-serif;
+    color:#afdef8;
+    
 }
 /*add octopus banner*/
 .bg-image0 {
@@ -23,6 +36,7 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
 
 }
 .bg-image1 {
@@ -68,7 +82,7 @@
 }
 
     
-    /* Add the new styles for dark mode */
+    
 body, html {
     text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Adds a subtle shadow to the text to make it stand out */
     background-color: var(--clr-dark); /* Black background */
@@ -87,8 +101,7 @@ body, html {
 
 
 /* Add borders and shadows to images, banners, and buttons */
-img
- {
+img{
     border: .5px solid var(--clr-dark);  /* Dark gray borders */
     box-shadow: var(--banner-box-shadow);
     height:1.5in;
@@ -97,8 +110,10 @@ img
 
 /* Gradient and shadow for buttons */
 button {
-    background: var(--clr-accent); /* Gradient for buttons */
+    background: transparent; /* Gradient for buttons */
     box-shadow: var(--banner-box-shadow);
+    background-attachment: scroll;
+
 }
 
 /* Gradient for header text */
@@ -117,9 +132,24 @@ h6 {
     font-family: 'Ubuntu', sans-serif;
     animation: textGradientAnimation 3s infinite alternate;
     text-align: center;
+    z-index:1001;
+}
+.section__title--intro {
+    position:relative;
+    text-align:center;
+    padding-bottom:80px;
+    margin-top:15px;
+    font-size:25px;
 }
 
-    
+
+#About-Me {
+    position:relative;
+    font-size:large;
+    text-align:center;
+    padding-top:40px;
+    padding-bottom:60px;
+}
 
 .about-section {
     position: relative;
@@ -164,36 +194,40 @@ h6 {
     
 
 /* Hamburger menu styles */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 40px; /* Adjust width as needed */
+    height: 30px; /* Adjust height as needed */
+    cursor: pointer;
+    z-index:1000;
+    top:5px;
+    right:5px;
+    background-attachment: fixed;
+}
 
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 5px; /* Set the height to 1/4 inch */
+    background-color: purple; /* Set the color of the lines */
+    margin: 1px 0; /* Adjust spacing between the lines */
+    z-index: 1000;/*ensure menu is on topmost level, above everything*/
+    background-attachment: fixed;/*keep menu stationary as text scrolls*/
+    position:static;
+    top:5px;
+    right:5px;
+    animation: textGradientAnimation 3s infinite alternate;
+}
 
 /*show the nav menu when .nav-opnen class added to body*/
 body.nav-open .nav {
     display:block;
     position:fixed;
 }
-.nav-toggle {
-    position:fixed;
-    top:20px;
-    right:20px;
-    z-index:1000;
-    cursor:pointer;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    align-items:center;
-    width:30px;
-    height:25px;
-}
 
-.nav-toggle span {
-    display:block;
-    width:100%;
-    height:4px;
-    
-    background:var(--clr-accent);
-    transform: all 0.3s ease;
-    
-}
 
 .nav {
     display:none;
@@ -206,21 +240,22 @@ body.nav-open .nav {
     box-shadow: 0 0 10px rga(0,0,0,0.1);
 }
 
-.nav.active {
+.nav.open {
     display:block;
 }
 
-.nav ul {
+.nav__list ul {
     list-style:none;
     padding:0;
     margin:0;
+    -webkit-text-fill-color: #afdef8;
 }
-.nav ul li {
+.nav__list ul li {
     padding:10px 0;
 }
-.nav ul li a {
+.nav__list ul li a {
     text-decoration:none;
-    color:var(--clr-accent);
+    color:var(--clr-light-gray);
     
 }
 

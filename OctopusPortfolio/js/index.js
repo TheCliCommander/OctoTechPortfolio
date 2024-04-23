@@ -1,6 +1,8 @@
-// Get references to the navigation elements
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelectorAll('.nav__link');
+
+import * as THREE from 'C:/Users/capta/source/repos/three.js-dev';
+
+const navToggle = document.querySelector('.hamburger');
+const navLinks = document.querySelectorAll('nav__link');
 if (navToggle) {
     // Toggle mobile menu when hamburger icon is clicked
     navToggle.addEventListener('click', () => {
@@ -59,8 +61,12 @@ let scene, camera, renderer, carousel;
 
                         scene.add(carousel);
                         camera.position.z = 5;
+                        var THREE = require('three') // require peer dependency
+                        var initializeDomEvents = require('threex.domevents')
+                        var THREEx = {}
+                        initializeDomEvents(THREE, THREEx)
 
-                        const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
+                        const domEvents = new three.DomEvents(camera, renderer.domElement);
                         carousel.children.forEach(mesh => {
                             domEvents.addEventListener(mesh, 'click', event => {
                                 window.location.href = mesh.userData.url;
@@ -70,6 +76,7 @@ let scene, camera, renderer, carousel;
                         animate();
                         
                     }
+                    
 
                     function animate() {
                         requestAnimationFrame(animate);
@@ -111,3 +118,49 @@ let scene, camera, renderer, carousel;
                             });
                         });
                     });
+window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        const topImageHeader = document.querySelector('.bg-image0 h3');
+        const topImageHeaderText = topImageHeader.textContent;
+        const aboutSection = document.querySelector('.about-section');
+        const whatIDoSection = document.querySelector('.services-section');
+        const projectsSection = document.querySelector('.projects');
+        const headerHeight = header.getBoundingClientRect().height;
+        
+        
+        
+
+        if (aboutSection.getBoundingClientRect().top <= headerHeight ) {
+            header.style.position = 'fixed';
+            header.style.top = '0';
+            header.style.width = '100%';
+            topImageHeader.textContent = topImageHeaderText;
+        } else {
+            header.style.position = 'static';
+            topImageHeader.textContent = '';
+        }
+        //Adjust the position of section__title based on scroll
+        const sectionTitles = document.querySelectorAll('.section__title');
+        let titleFixed = false;//flag to track if a title is fixed
+        sectionTitles.forEach(title => {
+            const titleTop= title.getBoundingClientRect().top;
+            const bgImage0Bottom = document.querySelector('.bg-image0').getBoundingClientRect().bottom;
+            
+            if (!titleFixed && bgImage0Bottom  <= titleTop) {
+                title.style.position = 'fixed';
+                title.style.top = '0%';
+                title.style.left = '10%';
+                title.style.transform = 'translateX(-50%)';
+                title.style.visibility = 'visible';
+                titleFixed = true; //set the flag to true once a title is fixed
+            }else {
+                title.style.position = 'scroll';
+                title.style.visibilty = 'hidden'; //hidden until scrolls into position
+            }
+
+            
+            
+        });
+    
+});
+            

@@ -1,11 +1,13 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<div class="headContainer">
 <head>
     <script src="https://kit.fontawesome.com/5fa6006d1b.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://ka-f.fontawesome.com;">
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
     integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"
@@ -14,13 +16,13 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" />
 
     <link rel="stylesheet" href="css/style.css" />
-
-
+    <script type="module" src="https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js"></script>
+    
     <title>Michael Ryberg's Portfolio</title>
 </head>
-</div>
+
 <! -- set scrolling text -->
-        <div class="scrolling-text">
+<div class="scrolling-text">
 <body>
     <div class="background-container">
         
@@ -28,6 +30,8 @@
 
             <img class="bg-image0" src="img/octoBannerTop.png" alt="fixed image">
         </div>
+    
+        
 
 
         <div class="body"></div>
@@ -35,11 +39,11 @@
         <header>
 
 
-            <button class="nav-toggle" id="hamburger" aria-label="toggle navigation">
+            <button class="hamburger" id="hamburger" aria-label="toggle navigation">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
+                    
                 </span>
             </button>
             <nav class="nav">
@@ -53,23 +57,26 @@
                 </ul>
             </nav>
         </header>
+        
 
         
         
         <! -- Introduction -->
         <section class="intro" id="home">
             <h1 class="section__title section__title--intro">
-                Hi, I'm <strong>Michael Ryberg</strong>
+                Michael Ryberg's Portfolio
             </h1>
             <div class="container">
                 <div class="bg-image0"
                      id="bg-image0"
                 <img src="bg-image0" />
-                    <h1 id="banner-text">Full Stack Developer</h1>
+                
                 </div>
             </div>
         </section>
-        <h2>About Me</h2>
+        <h3 class="section__title section__title--About-Me">
+            About Me
+        </h3>
         <section id="about" class="about-section">
             
             
@@ -89,9 +96,12 @@
     
             </div>
         </div>
-        
+        <! -- hope this works -->
         <section id="services" class="services-section">
-            <h2>What I Do</h2>
+            <h1 class="section__title section__title--What I Do">
+                What I Do
+
+            </h1>
             <div class="service">
                 <h3>Development</h3>
                 <p2>My forte lies in end-to-end software development. From conceptualization to deployment, I craft elegant solutions that seamlessly blend design aesthetics with robust functionality. Whether it's web development, app creation, or database management, I bring precision and innovation to every project.</p>
@@ -110,10 +120,7 @@
                 </div>
             </div>
          
-            <div class="service">
-                <h3>Linux System Administration</h3>
-                <p2>Linux is my passion. With extensive hands-on experience—over 200 hours—I've delved into both desktop and server environments, including Proxmox. My expertise spans system setup, maintenance, troubleshooting, and ensuring optimal security protocols.</p>
-            </div>
+           
             <div class="service">
                 <h3>E-Commerce</h3>
                 <p2>Unlock the potential of your online store with my comprehensive e-commerce solutions. Seamlessly facilitating transactions, enhancing user experience, and fortifying security—these are the cornerstones of my approach.</p>
@@ -122,10 +129,8 @@
 
         <!-- Projects -->
         <section class="projects" id="projects">
-            <h2 class="section__title section__title--projects">Projects</h2>
-            <p class="section__subtitle section__subtitle--projects">
-                Portfolio
-            </p>
+            <h1 class="section__title section__title--projects">Projects</h1>
+            
             <div class="projects__body">
                 <p>
                     Here is a portfolio of my favorite projects for you to view for an idea of the
@@ -136,86 +141,9 @@
             </div>
 
             <div class="portfolio">
-                <script>
-                    let scene, camera, renderer, carousel;
-                    const portfolioItems = [
-                        { url: 'portfolio-item.html', img: 'img/OnTime.png', alt: 'picture of OnTime App' },
-                        { url: 'portfolio-item2.html', img: 'img/PassBox.jpg.png', alt: 'picture of PassBox App' },
-                        { url: 'portfolio-item3.html', img: 'img/ecommercesite.png', alt: 'picture of E-Commerce Site' }
-                    ];
+                
 
-                    function initCarousel() {
-                        scene = new THREE.Scene();
-                        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-                        renderer = new THREE.WebGLRenderer();
-                        renderer.setSize(window.innerWidth, window.innerHeight);
-                        document.getElementById('carouselContainer').appendChild(renderer.domElement);
-
-                        carousel = new THREE.Group();
-                        portfolioItems.forEach((item, index) => {
-                            const texture = new THREE.TextureLoader().load(item.img);
-                            const material = new THREE.MeshBasicMaterial({ map: texture });
-                            const plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 3), material);
-                            plane.position.x = index * 6 - (portfolioItems.length * 6) / 2 + 3; // Spread out the planes
-                            plane.userData.url = item.url; // Store the URL in the mesh's userData
-                            carousel.add(plane);
-                        });
-
-                        scene.add(carousel);
-                        camera.position.z = 5;
-
-                        const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
-                        carousel.children.forEach(mesh => {
-                            domEvents.addEventListener(mesh, 'click', event => {
-                                window.location.href = mesh.userData.url;
-                            }, false);
-                        });
-
-                        animate();
-                        
-                    }
-
-                    function animate() {
-                        requestAnimationFrame(animate);
-                        carousel.rotation.y += 0.01; // Rotate the carousel
-                        renderer.render(scene, camera);
-                    }
-
-                    window.addEventListener('resize', () => {
-                        camera.aspect = window.innerWidth / window.innerHeight;
-                        camera.updateProjectionMatrix();
-                        renderer.setSize(window.innerWidth, window.innerHeight);
-                    });
-
-                    initCarousel();
-                    carousel.children.forEach(mesh => {
-                        mesh.addEventListener('mouseenter', event => {
-                            carousel.children.forEach(item => {
-                                if (item !== mesh) {
-                                    item.scale.set(0.8, 2, 0.8);
-                                } else {
-                                    item.scale.set(1, 2, 1);
-                                }
-                            });
-                        });
-
-                        mesh.addEventListener('mouseleave', event => {
-                            carousel.children.forEach(item => {
-                                item.scale.set(1, 2, 1);
-                            });
-                        });
-
-                        mesh.addEventListener('click', event => {
-                            carousel.children.forEach(item => {
-                                if (item !== mesh) {
-                                    item.position.x = item.position.x - 6;
-                                } else {
-                                    item.position.x = 0;
-                                }
-                            });
-                        });
-                    });
-                </script>
+                    
                 
                 <div id="carouselContainer">
                 
@@ -233,7 +161,7 @@
                 <a href="portfolio-item3.html" class="portfolio__item2">
                     <img src="img/ecommercesite.png" alt="picture of E-Commerce Site" class="portfolio__img2">
                 </a>
-            </div>
+                </div>
 
 
             
@@ -255,11 +183,14 @@
             </ul>
         </footer>
         </div>
+    
+
+    
     </div>
-
-    <script src="js/index.js"></script>
-
 </body>
+    
+</div>
+<script type="module" src="js/index.js"></script>
 
                                         
 </html>
