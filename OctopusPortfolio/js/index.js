@@ -140,23 +140,31 @@ window.addEventListener('scroll', function() {
             topImageHeader.textContent = '';
         }
         //Adjust the position of section__title based on scroll
-        const sectionTitles = document.querySelectorAll('.section__title');
-        let titleFixed = false;//flag to track if a title is fixed
-        sectionTitles.forEach(title => {
+        const sectionTitleContainers = document.querySelectorAll('.section__title-container');
+        
+        sectionTitleContainers.forEach(container => {
+            const title = container.querySelector('.section__title')
             const titleTop= title.getBoundingClientRect().top;
             const bgImage0Bottom = document.querySelector('.bg-image0').getBoundingClientRect().bottom;
             
             if (!titleFixed && bgImage0Bottom  <= titleTop) {
-                title.style.position = 'fixed';
-                title.style.top = '0%';
-                title.style.left = '10%';
-                title.style.transform = 'translateX(-50%)';
-                title.style.visibility = 'visible';
+                container.style.position = 'sticky';
+                container.style.top = '0%';
+                container.style.left = '50%';
+                container.style.transform = 'translateX(-50%)';//center title horizontally
+                container.style.visibility = 'visible';
                 titleFixed = true; //set the flag to true once a title is fixed
-            }else {
-                title.style.position = 'scroll';
-                title.style.visibilty = 'hidden'; //hidden until scrolls into position
+            }else if (titleFixed && bgImage0Bottom > titleTop) {
+                container.style.position = 'static';//reset to original position
+                container.style.visibilty = 'visible';
+                titleFixed = false; //reset titleFixed 
+            } else {
+                container.style.position = 'static';//keep title in its original position
+                container.style.visibility = 'visible';
+
             }
+
+
 
             
             

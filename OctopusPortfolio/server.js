@@ -15,12 +15,31 @@ app.use('/css', express.static(path.join(__dirname, 'css'), {'extensions':['css'
 //Serve static files from the js folder
 app.use('/js', express.static(path.join(__dirname, 'js'), {'extensions': ['css']}));
 // Define a route to serve the landing.html file with corrected file path
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
     console.log('Request received for landing.html page');
     res.sendFile(path.join(__dirname, 'landing.html'));
 });
 
-const PORT = process.env.PORT || 3000;
+
+
+const port = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+/********Node.js********* */ 
+
+// src/backend/server.js
+const expess = require('express');
+const app = expess();
+const port = process.env.PORT || 3000;
+
+app.use(express.static('OctopusPortfolio'));// Serve files fromo OctopusPortfolio folder
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+
